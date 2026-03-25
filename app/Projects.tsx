@@ -20,7 +20,7 @@ function Projects() {
       title: "Renewable Energy Advisor",
       description: "An AI-powered chatbot using Python and NLP to guide users in selecting suitable renewable energy options. Includes interactive dashboards to present feasibility results.",
       techStack: ["Python", "NLP", "React", "Data Analysis"],
-      link: "#"
+      link: "https://github.com/Akshats25/Renewable-Natural-Energy-Advisor-Bot"
     },
     {
       title: "Serverless URL Shortener",
@@ -46,7 +46,7 @@ function Projects() {
       <div
         ref={sectionRef}
         className={cn(
-          "flex w-full max-w-7xl flex-col items-center gap-10 px-6 py-16 transition-all duration-700 ease-in-out",
+          "flex w-full max-w-7xl flex-col items-center gap-4 px-6 py-8 transition-all duration-700 ease-in-out",
           sectionVisible ? "" : "translate-y-10 opacity-0",
         )}
       >
@@ -59,7 +59,7 @@ function Projects() {
         <div className="h-1 w-24 rounded-full bg-gradient-to-r from-blue-500 to-blue-300" />
 
         {/* Projects Cards */}
-        <div className="mt-8 flex flex-col gap-8 lg:flex-row lg:justify-center">
+        <div className="mt-4 flex flex-col gap-4 lg:flex-row lg:justify-center">
           {randomProjects.map((p, idx) => (
             <Project
               key={idx}

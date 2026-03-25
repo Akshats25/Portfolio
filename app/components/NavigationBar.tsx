@@ -4,7 +4,7 @@
  */
 
 import { IParallax, ParallaxLayer } from "@react-spring/parallax";
-import { fontJersey15 } from "@/lib/font";
+import { fontInter } from "@/lib/font";
 import "../style/navigationBar.css";
 import { RefObject } from "react";
 import { cn } from "@/lib/utils";
@@ -31,8 +31,8 @@ function NavigationBarText({
     <span
       onClick={onClick}
       className={cn(
-        "cursor-pointer px-2 py-1 text-xl lg:px-4 lg:text-2xl text-slate-700 hover:text-blue-7 transition-colors",
-        fontJersey15.className,
+        "cursor-pointer px-2 py-1 text-xl lg:px-4 lg:text-2xl text-slate-700 hover:text-blue-7 transition-colors font-semibold",
+        fontInter.className,
         className,
       )}
     >
@@ -91,7 +91,7 @@ function NavigationBar({ speed, parallaxRef }: Props) {
           onClick={() => scrollToSection(0)} 
           className={cn(
             "cursor-pointer text-3xl font-bold text-slate-900 hover:text-blue-7 transition-colors",
-            fontJersey15.className
+            fontInter.className
           )}
         >
           Akshat Shukla

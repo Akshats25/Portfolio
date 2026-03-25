@@ -5,7 +5,7 @@
 
 import { IParallax, ParallaxLayer } from "@react-spring/parallax";
 import { RefObject } from "react";
-import { fontJersey15 } from "@/lib/font";
+import { fontJersey15, fontInter } from "@/lib/font";
 import { cn } from "@/lib/utils";
 
 // Propriétés
@@ -23,10 +23,10 @@ type Props = {
  */
 function Hero({ parallaxRef }: Props) {
   return (
-    <ParallaxLayer
+      <ParallaxLayer
       offset={0}
       speed={0}
-      className="flex flex-col items-center justify-center bg-slate-50"
+      className="flex flex-col items-center justify-center bg-gradient-to-br from-indigo-50 via-white to-blue-50"
     >
       <div className="flex w-full max-w-6xl flex-col items-center justify-between gap-12 px-8 lg:flex-row lg:px-16 mt-20 lg:mt-0">
         
@@ -35,12 +35,12 @@ function Hero({ parallaxRef }: Props) {
           <h1
             className={cn(
               "text-5xl font-bold text-slate-900 lg:text-7xl",
-              fontJersey15.className
+              fontInter.className
             )}
           >
             Akshat Shukla
           </h1>
-          <h2 className={cn("text-2xl font-semibold text-blue-600 mt-2", fontJersey15.className)}>
+          <h2 className={cn("text-2xl font-semibold text-blue-600 mt-2", fontInter.className)}>
             Full Stack Developer
           </h2>
           
@@ -92,11 +92,16 @@ function Hero({ parallaxRef }: Props) {
           </div>
         </div>
 
-        {/* Right Side: Circle Image Placeholder */}
+        {/* Right Side: Profile Image */}
         <div className="flex items-center justify-center lg:w-2/5 mt-10 lg:mt-0">
-          <div className="flex h-64 w-64 items-center justify-center rounded-full border border-slate-300 bg-white shadow-xl lg:h-[400px] lg:w-[400px]">
-            {/* Image Placeholder Text */}
-            <span className="text-sm text-slate-400">Profile Image Space</span>
+          <div className="relative flex h-64 w-64 items-center justify-center rounded-full border-4 border-white bg-gradient-to-br from-blue-100 to-indigo-100 shadow-2xl lg:h-[400px] lg:w-[400px] overflow-hidden">
+            {/* The user can drop their profile image as 'profile.jpg' in the public folder */}
+            <img 
+              src="/profile.jpg" 
+              alt="Akshat Shukla Profile" 
+              className="h-full w-full object-cover"
+              onError={(e) => { e.currentTarget.style.display = 'none'; }}
+            />
           </div>
         </div>
 

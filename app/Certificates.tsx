@@ -45,12 +45,51 @@ function Certificates() {
         {/* Divider */}
         <div className="h-1 w-24 rounded-full bg-gradient-to-r from-blue-500 to-blue-300" />
 
-        {/* Placeholder content */}
-        <div className="flex w-full flex-col gap-6">
-          {/* INSERT CERTIFICATE ITEMS HERE */}
-          <div className="rounded-xl border border-slate-200 bg-white shadow-sm p-6 text-center text-slate-600">
-            <p className="text-lg">[ Insert certificates here ]</p>
-          </div>
+        {/* Certificates Grid */}
+        <div className="grid w-full grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {[
+            {
+              tag: "Cloud",
+              name: "AWS Certified Solutions Architect",
+              date: "Aug 2023",
+              org: "Amazon Web Services",
+            },
+            {
+              tag: "Frontend",
+              name: "Advanced React Patterns",
+              date: "Jan 2024",
+              org: "Frontend Masters",
+            },
+            {
+              tag: "Backend",
+              name: "Node.js Developer Certification",
+              date: "Nov 2023",
+              org: "OpenJS Foundation",
+            },
+          ].map((cert, idx) => (
+            <div
+              key={idx}
+              className="flex flex-col gap-3 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-md text-left"
+            >
+              <div className="flex items-center justify-between">
+                <span className="rounded-full bg-blue-50 px-3 py-1 text-xs font-bold text-blue-700">
+                  {cert.tag}
+                </span>
+                <span className="text-sm font-medium text-slate-500">
+                  {cert.date}
+                </span>
+              </div>
+              <h3
+                className={cn(
+                  "mt-2 text-2xl font-bold text-slate-900",
+                  fontJersey15.className,
+                )}
+              >
+                {cert.name}
+              </h3>
+              <p className="font-medium text-slate-600">{cert.org}</p>
+            </div>
+          ))}
         </div>
       </div>
     </ParallaxLayer>

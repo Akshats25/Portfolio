@@ -47,7 +47,7 @@ function Experience() {
 
         {/* Experience Items List */}
         <div className="flex w-full flex-col gap-6">
-          
+
           {/* Experience Item: DSA with C++ */}
           <div className="flex flex-col gap-4 rounded-2xl border border-slate-200 bg-white p-8 shadow-sm transition-shadow hover:shadow-md text-left w-full">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 border-b border-slate-100 pb-4">
@@ -59,7 +59,7 @@ function Experience() {
                 Jan - Feb (Current)
               </div>
             </div>
-            
+
             <ul className="list-disc pl-5 text-slate-600 space-y-2 lg:text-lg">
               <li>Mastered foundational and advanced Data Structures including Arrays, Linked Lists, Trees, Graphs, and Hash Maps.</li>
               <li>Implemented optimal algorithmic strategies such as Dynamic Programming, Greedy approaches, and Graph Traversals.</li>
@@ -79,7 +79,7 @@ function Experience() {
                 Present
               </div>
             </div>
-            
+
             <ul className="list-disc pl-5 text-slate-600 space-y-2 lg:text-lg">
               <li>Solved complex algorithmic problems using Python&apos;s built-in data structures like lists, dictionaries, and sets.</li>
               <li>Implemented various sorting and searching algorithms to optimize performance and data retrieval times.</li>
