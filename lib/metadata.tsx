@@ -5,38 +5,38 @@
 import type { Metadata } from "next";
 
 const metadataInfos: Metadata = {
-  title: "Arthur Rasera Portfolio | Software Developer",
+  title: "Akshat Shukla Portfolio",
   description:
-    "Portfolio of Arthur Rasera, software engineer passionate about web development, artificial intelligence, and SAP systems. Explore my projects, skills, and professional experience.",
+    "Portfolio of Akshat Shukla, software engineer passionate about web development, artificial intelligence, and cutting-edge systems. Explore my projects, skills, and professional experience.",
   keywords: [
-    "Arthur Rasera",
+    "Akshat Shukla",
     "web developer",
     "portfolio",
     "Next.js",
     "React",
     "artificial intelligence",
-    "SAP development",
-    "DevOps",
+    "software development",
+    "cloud computing",
     "Python",
     "TypeScript",
     "C++",
     "software engineer",
   ],
-  authors: [{ name: "Arthur", url: "https://github.com/Raseraa0/" }],
-  creator: "Arthur",
-  publisher: "Arthur",
+  authors: [{ name: "Akshat Shukla", url: "https://github.com/Akshats25/" }],
+  creator: "Akshat",
+  publisher: "Akshat",
   openGraph: {
-    title: "Arthur Rasera Portfolio | Software Developer",
+    title: "Akshat Shukla Portfolio",
     description:
-      "Discover the portfolio of Arthur Rasera: web apps with Next.js, AI projects using Python, low-level and SAP development, and DevOps tools.",
+      "Discover the portfolio of Akshat Shukla: web apps with Next.js, AI projects using Python, and full-stack development.",
     url: "https://raseraa0.github.io",
-    siteName: "Arthur Rasera Portfolio",
+    siteName: "Akshat Shukla Portfolio",
     images: [
       {
         url: "https://raseraa0.github.io/preview.png", // Replace with your real image URL
         width: 1856,
         height: 928,
-        alt: "Preview of Arthur Rasera's developer portfolio",
+        alt: "Preview of Akshat Shukla's developer portfolio",
       },
     ],
     locale: "en_US",

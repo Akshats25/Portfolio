@@ -33,7 +33,7 @@ export default function SocialMediaBar({ speed }: Props) {
   // Effectué uniquement au début
   useEffect(() => {
     headerSetup();
-  }, );
+  },);
 
   /**
    * Va mettre en place le suivie de la barre en dessous des badge
@@ -106,7 +106,7 @@ export default function SocialMediaBar({ speed }: Props) {
 
   // Récupération du textes
   const { texts } = useLanguage();
-  
+
   return (
     <ParallaxLayer
       id="social-media-layer"
@@ -120,7 +120,7 @@ export default function SocialMediaBar({ speed }: Props) {
           <SocialMedia
             svgSrc={githubBadge}
             num="1"
-            href="https://github.com/Raseraa0/"
+            href="https://github.com/Akshats25/"
             alt={texts.hero.social.altGit}
           />
 
@@ -128,7 +128,7 @@ export default function SocialMediaBar({ speed }: Props) {
           <SocialMedia
             svgSrc={linkedinBadge}
             num="2"
-            href="https://fr.linkedin.com/in/arthur-rasera"
+            href="https://www.linkedin.com/in/akshat-shukla-24903a295/"
             alt={texts.hero.social.altLinkedin}
           />
 
@@ -136,7 +136,7 @@ export default function SocialMediaBar({ speed }: Props) {
           <SocialMedia
             svgSrc={mailBadge}
             num="3"
-            href="mailto:raserarthur71@gmail.com"
+            href="mailto:akshatshukla2011@gmail.com"
             alt={texts.hero.social.altMail}
           />
         </div>

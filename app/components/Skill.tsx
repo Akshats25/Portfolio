@@ -68,7 +68,7 @@ function Skill({ id, className = "" }: Props) {
               alt={`${texts.skills.altSkills} ${subSkill.name}`}
               src={subSkill.image}
               // placeholder="blur"
-              className="w-7"
+              className="w-7 h-7 object-contain rounded-sm"
             />
             <span className={cn(fontInter.className, "ml-2 text-sm")}>
               {subSkill.name}

@@ -2,39 +2,22 @@
  * Contient toutes les informations relatives aux projets.
  */
 
-import wallpaperGeneratorImg from "../public/img/projects/WallpaperGenerator.png";
-import neuralNetworkFromScratchImg from "../public/img/projects/NeuralNetwork.png";
-import rayTracingImg from "../public/img/projects/RayTracing.png";
-
-//TODO check la traduction
-
 const projects = [
   {
     id: 1,
-    title: "Générateur de fond d’écran",
+    title: "Renewable Energy Advisor Bot",
     description:
-      "Génère une image composée d’une mosaïque d’images données, ici des pochettes d’albums de musique. Les pochettes sont triées par couleur et arrangées dans un ordre spécifique pour produire le résultat final.",
-    image_path: wallpaperGeneratorImg,
-    link: "https://github.com/Raseraa0/Wallpaper",
-    color: "#c2410c",
+      "Un chatbot propulsé par l'IA utilisant Python et le NLP pour guider les utilisateurs dans le choix d'options d'énergies renouvelables (solaire, éolien, hybride). Inclut des outils analytiques et des tableaux de bord interactifs pour présenter les résultats de faisabilité et des plans personnalisés.",
+    link: "https://github.com/Akshats25/",
+    color: "#16a34a",
   },
   {
     id: 2,
-    title: "Réseau de neurones depuis zéro",
+    title: "Serverless URL Shortener",
     description:
-      "Implémentation d’un réseau de neurones sans utiliser de bibliothèques d’IA existantes. Le but est de suivre les mêmes principes que Keras avec TensorFlow en Python, à l’aide de différentes couches facilement manipulables.",
-    image_path: neuralNetworkFromScratchImg,
-    link: "https://github.com/Raseraa0/NeuralNetworkFromScratch",
-    color: "#0f766e",
-  },
-  {
-    id: 3,
-    title: "Ray tracing",
-    description:
-      "Développement d’un système de ray tracing. L’objectif est de simuler des objets et une caméra dans un espace 3D, puis de reconstruire de manière réaliste ce que la caméra percevrait en ajustant textures, couleurs ou motifs.",
-    image_path: rayTracingImg,
-    link: "https://github.com/Raseraa0/RayTracing",
-    color: "#6d28d9",
+      "Un système de raccourcissement d'URL 100% serverless utilisant AWS Lambda, API Gateway et DynamoDB. Latence de lecture inférieure à 15 ms, réduction des coûts de +90% par rapport aux serveurs traditionnels, et métriques CloudWatch pour des insights en temps réel.",
+    link: "https://github.com/Akshats25/",
+    color: "#d97706",
   },
 ];
 

@@ -3,140 +3,68 @@
  * @type Page
  */
 
-import { ParallaxLayer } from "@react-spring/parallax";
-import Image from "next/image";
-import Timeline from "./components/Timeline";
-import "./style/about.css";
-import Button from "./components/Button";
-import Link from "next/link";
-import { useOnScreen } from "./hooks/useOnScreen";
+import { ParallaxLayer, IParallax } from "@react-spring/parallax";
 import { cn } from "@/lib/utils";
-import SocialMedia from "./components/SocialMedia";
+import { RefObject } from "react";
+import { fontJersey15 } from "@/lib/font";
 
-import selfieImg from "../public/img/selfie_v1.jpg";
-import githubBadge from "../public/img/social_media/github-badge.svg";
-import linkedinBadge from "../public/img/social_media/linkedin-badge.svg";
-import mailBadge from "../public/img/social_media/mail-badge.svg";
-import { useLanguage } from "./contexts/language-context";
+type Props = {
+  parallaxRef: RefObject<IParallax | null>;
+};
 
 /**
  * @About
- * Fonction principale
  *
- * @description Page About.
+ * @description Page About — Bento Box layout for Who I Am, What I do, My Mission.
  *
  */
-function About() {
-  // Références pour l'apparition au scroll
-  const [aboutRef, aboutVisible] = useOnScreen<HTMLDivElement>();
-  const [imgRef, imgVisible] = useOnScreen<HTMLImageElement>();
-  const [descRef, descVisible] = useOnScreen<HTMLDivElement>();
-  const [cvRef, cvVisible] = useOnScreen<HTMLButtonElement>();
-  const [contactRef, contactVisible] = useOnScreen<HTMLDivElement>();
-
-  // Récupération du textes
-  const { texts } = useLanguage();
-
+function About({ parallaxRef }: Props) {
   return (
     <ParallaxLayer
       offset={1}
       speed={0}
-      className="relative flex min-h-[600px] flex-col items-center justify-evenly bg-blue-9 dark:bg-blue-4 lg:flex-row"
+      className="flex min-h-[600px] flex-col items-center justify-center bg-slate-50 px-6 lg:px-12 py-16"
     >
-      <div className="absolute top-0 -z-10 hidden h-32 w-full flex-col items-center bg-blue-9 dark:flex">
-        <div className="half-ellipse absolute bg-blue-8"></div>
-        <div className="half-ellipse absolute top-2 bg-blue-7"></div>
-        <div className="half-ellipse absolute top-4 bg-blue-5"></div>
-        <div className="half-ellipse absolute top-6 bg-blue-6"></div>
-        <div className="half-ellipse absolute top-8 bg-blue-4"></div>
-      </div>
+      <div className="w-full max-w-6xl flex flex-col items-center">
+        <h2
+          className={cn(
+            "text-5xl font-bold text-slate-900 mb-10",
+            fontJersey15.className
+          )}
+        >
+          About Me
+        </h2>
 
-      {/* Cadre contenant les infos principales */}
-      <div
-        ref={aboutRef}
-        className={cn(
-          "mx-4 flex flex-col items-center justify-center rounded-2xl bg-gradient-to-b from-white-1/65 to-blue-5/45 transition-all duration-500 ease-in-out lg:mx-0 dark:from-blue-9 lg:h-[642px] dark:to-blue-5",
-          aboutVisible ? "" : "opacity-0",
-        )}
-      >
-        <div className="lg:gap0 m-px flex flex-col items-center justify-evenly gap-8 rounded-2xl bg-blue-9/95 py-8 lg:h-full  lg:py-0 dark:bg-blue-1/85">
-          {/* Photo de profil */}
-          <Image
-            ref={imgRef}
-            id="img-selfie"
-            src={selfieImg}
-            alt={texts.about.altPicture}
-            placeholder="blur"
-            className={cn(
-              "w-40 rounded-full transition-all duration-500 ease-in-out lg:w-64",
-              imgVisible ? "" : "translate-x-40 opacity-0",
-            )}
-          />
-
-          {/* Description de moi même */}
-          <div
-            ref={descRef}
-            className={cn(
-              "mx-12 max-w-[400px] text-sm transition-all duration-500 ease-in-out lg:text-base",
-              descVisible ? "" : "-translate-x-40 opacity-0",
-            )}
-          >
-            {texts.about.desc}
+        {/* Bento Grid layout */}
+        <div className="grid grid-cols-1 gap-6 w-full lg:grid-cols-3 lg:grid-rows-2 h-full lg:h-[500px]">
+          
+          {/* Box 1: Who I am */}
+          <div className="col-span-1 lg:row-span-2 overflow-hidden rounded-3xl border border-slate-200 bg-white p-8 shadow-sm hover:shadow-md transition-shadow flex flex-col gap-4">
+            <h3 className={cn("text-3xl text-slate-900", fontJersey15.className)}>Who I Am</h3>
+            <p className="text-slate-600 leading-relaxed">
+               I am a passionate software developer with a knack for building clean and modern web applications. 
+               My curiosity drives me to continuously learn and explore new technologies, creating solutions that solve real-world problems.
+            </p>
           </div>
 
-          {/* Bouton qui fait télécharger le CV */}
-          <Link href="/CV_RASERA_Arthur_FR.pdf" target="_blank">
-            <Button
-              ref={cvRef}
-              text={texts.about.seeCV}
-              className={cn(
-                "transition-all duration-500 ease-in-out",
-                cvVisible ? "" : "translate-x-40 opacity-0",
-              )}
-            />
-          </Link>
-
-          <div
-            ref={contactRef}
-            className={cn(
-              "flex flex-row gap-5 transition-all duration-500 ease-in-out md:scale-125",
-              contactVisible ? "" : "-translate-x-40 opacity-0",
-            )}
-          >
-            <div className="rounded-full bg-gradient-to-tr from-blue-1 to-blue-6 p-px duration-150 hover:scale-125">
-              <SocialMedia
-                svgSrc={githubBadge}
-                num="1"
-                href="https://github.com/Raseraa0/"
-                alt={texts.hero.social.altGit}
-              />
-            </div>
-
-            {/* Badge Linkedin */}
-            <div className="rounded-full bg-gradient-to-tr from-blue-1 to-blue-6 p-px duration-150 hover:scale-125">
-              <SocialMedia
-                svgSrc={linkedinBadge}
-                num="2"
-                href="https://fr.linkedin.com/in/arthur-rasera"
-                alt={texts.hero.social.altLinkedin}
-              />
-            </div>
-
-            {/* Badge Mail */}
-            <div className="rounded-full bg-gradient-to-tr from-blue-1 to-blue-6 p-px duration-150 hover:scale-125">
-              <SocialMedia
-                svgSrc={mailBadge}
-                num="3"
-                href="mailto:raserarthur71@gmail.com"
-                alt={texts.hero.social.altMail}
-              />
-            </div>
+          {/* Box 2: What I do */}
+          <div className="col-span-1 lg:col-span-2 lg:row-span-1 overflow-hidden rounded-3xl border border-slate-200 bg-white p-8 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-center gap-4">
+            <h3 className={cn("text-3xl text-slate-900", fontJersey15.className)}>What I Do</h3>
+            <p className="text-slate-600 leading-relaxed lg:w-4/5">
+              I specialize in Full Stack Development, architecting scalable backend systems, designing intuitive and responsive user interfaces, and ensuring robust database architectures. I love turning complex ideas into functional code.
+            </p>
           </div>
+
+          {/* Box 3: My Mission */}
+          <div className="col-span-1 lg:col-span-2 lg:row-span-1 overflow-hidden rounded-3xl border border-slate-200 bg-white p-8 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-center gap-4">
+            <h3 className={cn("text-3xl text-slate-900", fontJersey15.className)}>My Mission</h3>
+            <p className="text-slate-600 leading-relaxed lg:w-4/5">
+              To engineer software solutions that not only fulfill business requirements but also provide seamless, accessible, and delightful experiences for users globally. I aim for engineering excellence in every line of code.
+            </p>
+          </div>
+
         </div>
       </div>
-
-      {/* Timeline sur mon parcours */}
-      <Timeline className="scale-90 lg:scale-110" />
     </ParallaxLayer>
   );
 }

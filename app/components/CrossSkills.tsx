@@ -33,13 +33,6 @@ function CrossSkills() {
               "linear-gradient(to right, transparent,  #6aceff 10% ,#6aceff 90% , transparent)",
           }}
         ></div>
-        <div
-          className="h-[2px] w-full"
-          style={{
-            background:
-              "linear-gradient(to right, transparent,  #6aceff 10% ,#6aceff 90% , transparent)",
-          }}
-        ></div>
       </div>
 
       {/* Les 6 compartiments */}

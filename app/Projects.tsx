@@ -3,85 +3,73 @@
  * @type Page
  */
 
-import { useState } from "react";
+"use client";
+
 import { ParallaxLayer } from "@react-spring/parallax";
 import Project from "./components/Project";
 import { useOnScreen } from "./hooks/useOnScreen";
 import { cn } from "@/lib/utils";
+import { fontJersey15 } from "@/lib/font";
 
-/**
- * @Projects
- * Fonction principale
- *
- * @description Page Projects.
- *
- */
 function Projects() {
-  // Id du project qui est extand (-1 signifie que aucun n'est expand)
-  const [expandedProjectId, setExpandedProjectId] = useState(-1);
+  const [sectionRef, sectionVisible] = useOnScreen<HTMLDivElement>();
 
-  /**
-   *
-   * Si grand écran, rien n'est expand.
-   * Si petit écran, on expand si pas déjà expand et on dé expand sinon
-   *
-   * @param id: id du projet que l'on expand
-   */
-  const handleExpandProject = (id: number) => {
-    if (window.innerWidth > 768) {
-      setExpandedProjectId(-1);
-    } else {
-      setExpandedProjectId(expandedProjectId === id ? -1 : id);
+  // Random project details per user request
+  const randomProjects = [
+    {
+      title: "Renewable Energy Advisor",
+      description: "An AI-powered chatbot using Python and NLP to guide users in selecting suitable renewable energy options. Includes interactive dashboards to present feasibility results.",
+      techStack: ["Python", "NLP", "React", "Data Analysis"],
+      link: "#"
+    },
+    {
+      title: "Serverless URL Shortener",
+      description: "A completely serverless URL shortening system achieving zero infrastructure management. Features sub-15ms read latency and 90%+ cost reduction vs traditional servers.",
+      techStack: ["AWS Lambda", "API Gateway", "DynamoDB"],
+      link: "#"
+    },
+    {
+      title: "E-Commerce Microservices",
+      description: "A secure, scalable e-commerce backend built with microservices architecture. Implemented distributed tracing, a secure payment gateway integration, and real-time inventory.",
+      techStack: ["Node.js", "Docker", "Stripe API", "MongoDB"],
+      link: "#"
     }
-  };
-
-  // Lorsque l'on resize la fenêtre, on dé expand tout
-  window.addEventListener("resize", () => {
-    handleExpandProject(-1);
-  });
-
-  // Références pour l'apparition au scroll
-  const [project1Ref, project1Visible] = useOnScreen<HTMLDivElement>();
-  const [project2Ref, project2Visible] = useOnScreen<HTMLDivElement>();
-  const [project3Ref, project3Visible] = useOnScreen<HTMLDivElement>();
+  ];
 
   return (
     <ParallaxLayer
-      offset={2}
+      id="projects"
+      offset={3}
       speed={0}
-      className="h-min-[600px] flex items-center justify-center bg-blue-9 dark:bg-blue-4"
+      className="relative flex min-h-[600px] flex-col items-center justify-center bg-slate-50"
     >
-      <div className="flex h-full w-full flex-col justify-center lg:h-4/5 lg:min-h-[600px] lg:flex-row">
-        <Project
-          ref={project1Ref}
-          id={1}
-          isExpanded={expandedProjectId === 1}
-          onExpand={handleExpandProject}
-          className={cn(
-            "transition-all duration-1000 ease-in-out hover:duration-300",
-            project1Visible ? "" : "pointer-events-none opacity-0",
-          )}
-        />
-        <Project
-          ref={project2Ref}
-          id={2}
-          isExpanded={expandedProjectId === 2}
-          onExpand={handleExpandProject}
-          className={cn(
-            "transition-all delay-300 duration-1000 ease-in-out hover:delay-0 hover:duration-300",
-            project2Visible ? "" : "opacity-0",
-          )}
-        />
-        <Project
-          ref={project3Ref}
-          id={3}
-          isExpanded={expandedProjectId === 3}
-          onExpand={handleExpandProject}
-          className={cn(
-            "transition-all delay-[600ms] duration-1000 ease-in-out hover:delay-0 hover:duration-300",
-            project3Visible ? "" : "opacity-0",
-          )}
-        />
+      <div
+        ref={sectionRef}
+        className={cn(
+          "flex w-full max-w-7xl flex-col items-center gap-10 px-6 py-16 transition-all duration-700 ease-in-out",
+          sectionVisible ? "" : "translate-y-10 opacity-0",
+        )}
+      >
+        {/* Section Title */}
+        <h2 className={cn("text-5xl text-slate-900 lg:text-6xl", fontJersey15.className)}>
+          Featured Projects
+        </h2>
+        
+        {/* Divider */}
+        <div className="h-1 w-24 rounded-full bg-gradient-to-r from-blue-500 to-blue-300" />
+
+        {/* Projects Cards */}
+        <div className="mt-8 flex flex-col gap-8 lg:flex-row lg:justify-center">
+          {randomProjects.map((p, idx) => (
+            <Project
+              key={idx}
+              title={p.title}
+              description={p.description}
+              techStack={p.techStack}
+              link={p.link}
+            />
+          ))}
+        </div>
       </div>
     </ParallaxLayer>
   );

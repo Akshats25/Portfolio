@@ -196,14 +196,6 @@ function Timeline({ className = "" }: Props) {
         isFirst
       />
 
-      {/* Etape Oxyl */}
-      <TimelineStep
-        name={texts.about.timeline.oxyl.name}
-        desc={texts.about.timeline.oxyl.desc}
-        date={texts.about.timeline.oxyl.date}
-        right
-      />
-
       {/* Etape UPC */}
       <TimelineStep
         name={texts.about.timeline.upc.name}

@@ -8,7 +8,6 @@ import { fontJersey15 } from "@/lib/font";
 import "../style/navigationBar.css";
 import { RefObject } from "react";
 import { cn } from "@/lib/utils";
-import { useLanguage } from "../contexts/language-context";
 
 // Propriétés de NavigationBar
 type Props = {
@@ -23,27 +22,16 @@ type PropsAgain = {
   onClick?: () => void;
 };
 
-/**
- * @NavigationBarText
- *
- * @description Texte qui va servir de lien cliquable
- * afin de renvoyer aux autre section du porte folio.
- *
- * @param text: Texte qui sera affiché
- * @param className: Classe supplémentaire à appliquer au bouton
- * @param onClick: Fonction qui va etre réalisé lors du clique sur le texte
- *
- */
 function NavigationBarText({
   text,
   className = "",
-  onClick = () => {},
+  onClick = () => { },
 }: PropsAgain) {
   return (
     <span
       onClick={onClick}
       className={cn(
-        "p-navigation-bar-text px-4 py-1 text-end text-3xl text-blue-9 lg:px-12 lg:text-4xl",
+        "cursor-pointer px-2 py-1 text-xl lg:px-4 lg:text-2xl text-slate-700 hover:text-blue-7 transition-colors",
         fontJersey15.className,
         className,
       )}
@@ -56,11 +44,7 @@ function NavigationBarText({
 /**
  * @NavigationBar
  *
- * @description Barre de navigation qui comportera des liens pour
- * aller aux autres sections du porte folio, sur sa proche couche parallax.
- *
- * @param speed: Vitesse à transmettre à la couche parallax
- * @param parallaxRef: Référence de l'élément global parallax
+ * @description Redesigned navbar (Light Theme). Links on left, Name on right.
  *
  */
 function NavigationBar({ speed, parallaxRef }: Props) {
@@ -68,36 +52,50 @@ function NavigationBar({ speed, parallaxRef }: Props) {
     parallaxRef.current?.scrollTo(sectionOffset);
   };
 
-  // Récupération du textes
-  const { texts } = useLanguage();
-
   return (
     <ParallaxLayer
       offset={0}
       speed={speed}
-      className="pointer-events-none flex justify-end"
+      className="pointer-events-none absolute top-0 left-0 z-[100] w-full"
     >
       <div
         id="navigation-bar"
-        className="pointer-events-auto flex flex-col pt-4 lg:pt-8"
+        className="pointer-events-auto flex w-full flex-row items-center justify-between px-6 pt-6 lg:px-16"
       >
-        {/* Navigation section About */}
-        <NavigationBarText
-          text={texts.hero.nav.about}
-          onClick={() => scrollToSection(1)}
-        ></NavigationBarText>
+        {/* Left Side: Links */}
+        <div className="flex flex-wrap items-center gap-2 lg:gap-4 lg:ml-8">
+          <NavigationBarText
+            text="Projects"
+            onClick={() => scrollToSection(3)}
+          />
+          <NavigationBarText
+            text="Learning"
+            onClick={() => scrollToSection(4)}
+          />
+          <NavigationBarText
+            text="Certificates"
+            onClick={() => scrollToSection(5)}
+          />
+          <NavigationBarText
+            text="Skills"
+            onClick={() => scrollToSection(2)}
+          />
+          <NavigationBarText
+            text="Achievements"
+            onClick={() => scrollToSection(1)}
+          />
+        </div>
 
-        {/* Navigation section Projects */}
-        <NavigationBarText
-          text={texts.hero.nav.projects}
-          onClick={() => scrollToSection(2)}
-        ></NavigationBarText>
-
-        {/* Navigation section Skills */}
-        <NavigationBarText
-          text={texts.hero.nav.skills}
-          onClick={() => scrollToSection(3)}
-        ></NavigationBarText>
+        {/* Right Side: Name */}
+        <div 
+          onClick={() => scrollToSection(0)} 
+          className={cn(
+            "cursor-pointer text-3xl font-bold text-slate-900 hover:text-blue-7 transition-colors",
+            fontJersey15.className
+          )}
+        >
+          Akshat Shukla
+        </div>
       </div>
     </ParallaxLayer>
   );

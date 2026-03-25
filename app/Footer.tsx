@@ -53,7 +53,7 @@ function Footer() {
 
   return (
     <ParallaxLayer
-      offset={3}
+      offset={6}
       speed={0}
       className="min-[600px] pointer-events-none relative"
     >
@@ -72,19 +72,19 @@ function Footer() {
           {/* Media Github */}
           <FooterMedia
             name={texts.footer.git}
-            href="https://github.com/Raseraa0/"
+            href="https://github.com/Akshats25/"
           />
 
           {/* Media Linkedin */}
           <FooterMedia
             name={texts.footer.linkedin}
-            href="https://fr.linkedin.com/in/arthur-rasera"
+            href="https://www.linkedin.com/in/akshat-shukla-24903a295/"
           />
 
           {/* Media Mail */}
           <FooterMedia
             name={texts.footer.mail}
-            href="mailto:raserarthur71@gmail.com"
+            href="mailto:akshatshukla2011@gmail.com"
           />
         </div>
       </div>

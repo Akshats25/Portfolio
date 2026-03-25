@@ -8,9 +8,13 @@ import { IParallax, Parallax } from "@react-spring/parallax";
 import { useEffect, useRef, useState } from "react";
 import Hero from "./Hero";
 import LoadingScreen from "./components/LoadingScreen";
+import NavigationBar from "./components/NavigationBar";
 import About from "./About";
 import Projects from "./Projects";
 import Skills from "./Skills";
+import Experience from "./Experience";
+import Certificates from "./Certificates";
+import Contact from "./Contact";
 import Footer from "./Footer";
 import BackToTopButton from "./components/BackToTopButton";
 import BackgroundColor from "./components/BackgroundColor";
@@ -21,6 +25,14 @@ import BackgroundColor from "./components/BackgroundColor";
  *
  * @description Contient l'entièreté du porte folio.
  *
+ * Parallax pages:
+ *  0 – Hero (Home)
+ *  1 – About
+ *  2 – Skills
+ *  3 – Experience
+ *  4 – Certificates
+ *  5 – Projects
+ *  6 – Contact + Footer
  */
 export default function Home() {
   // Booléen qui indique si la page est entrain de se charger
@@ -70,23 +82,34 @@ export default function Home() {
       {/* Conteneur parallax qui contiendra chaques pages*/}
       <Parallax
         ref={parallaxRef}
-        pages={4}
+        pages={7}
         style={{ top: "0", left: "0" }}
-        className="p-animation bg-blue-9"
+        className="p-animation bg-slate-50"
       >
-        {/* Hero pour la page d'acceuil */}
+        <NavigationBar speed={0} parallaxRef={parallaxRef} />
+
+        {/* Hero pour la page d'acceuil (offset 0) */}
         <Hero parallaxRef={parallaxRef} />
 
-        {/* Fond uni */}
-        <BackgroundColor color="#00131c" offset={1} />
-        <BackgroundColor color="#00131c" offset={2} />
-        <BackgroundColor color="#00131c" offset={3} />
+        {/* About (offset 1) */}
+        <About parallaxRef={parallaxRef} />
 
-        {/* <ElementBackground /> */}
-
-        <About />
-        <Projects />
+        {/* Skills (offset 2) */}
         <Skills />
+
+        {/* Projects (offset 3) */}
+        <Projects />
+
+        {/* Experience (offset 4) */}
+        <Experience />
+
+        {/* Certificates (offset 5) */}
+        <Certificates />
+
+        {/* Contact (offset 6) */}
+        <Contact />
+
+        {/* Footer (offset 6, bottom) */}
         <Footer />
       </Parallax>
     </main>
