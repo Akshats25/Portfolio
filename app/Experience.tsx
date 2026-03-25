@@ -68,6 +68,27 @@ function Experience() {
             </ul>
           </div>
 
+          {/* Experience Item: Python with DSA */}
+          <div className="flex flex-col gap-4 rounded-2xl border border-slate-200 bg-white p-8 shadow-sm transition-shadow hover:shadow-md text-left w-full">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 border-b border-slate-100 pb-4">
+              <div>
+                <h3 className={cn("text-2xl font-bold text-slate-900", fontJersey15.className)}>Python with DSA</h3>
+                <p className="text-blue-600 font-medium">Self Learning & Skill Development</p>
+              </div>
+              <div className="inline-flex items-center rounded-full bg-blue-50 px-3 py-1 text-sm font-semibold text-blue-700 w-fit">
+                Present
+              </div>
+            </div>
+            
+            <ul className="list-disc pl-5 text-slate-600 space-y-2 lg:text-lg">
+              <li>Solved complex algorithmic problems using Python&apos;s built-in data structures like lists, dictionaries, and sets.</li>
+              <li>Implemented various sorting and searching algorithms to optimize performance and data retrieval times.</li>
+              <li>Gained deep understanding of time and space complexity analysis (Big O notation) for Python algorithms.</li>
+              <li>Worked extensively with dynamic programming, recursion, and graph algorithms to solve advanced computational problems.</li>
+              <li>Continuously practiced on competitive programming platforms to refine problem-solving skills and logical thinking.</li>
+            </ul>
+          </div>
+
         </div>
       </div>
     </ParallaxLayer>

@@ -18,6 +18,7 @@ type Props = {
  * @description Page About — Bento Box layout for Who I Am, What I do, My Mission.
  *
  */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function About({ parallaxRef }: Props) {
   return (
     <ParallaxLayer

@@ -17,7 +17,7 @@ import Certificates from "./Certificates";
 import Contact from "./Contact";
 import Footer from "./Footer";
 import BackToTopButton from "./components/BackToTopButton";
-import BackgroundColor from "./components/BackgroundColor";
+// import BackgroundColor from "./components/BackgroundColor";
 
 /**
  * @Home

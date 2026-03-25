@@ -46,7 +46,7 @@ function Hero({ parallaxRef }: Props) {
           
           <p className="max-w-xl text-lg text-slate-600 mt-4 leading-relaxed">
             I specialize in building scalable web applications with modern technologies. 
-            I'm passionate about creating elegant solutions to complex problems, architecting robust backend systems, and delivering exceptional user experiences.
+            I&apos;m passionate about creating elegant solutions to complex problems, architecting robust backend systems, and delivering exceptional user experiences.
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-4">

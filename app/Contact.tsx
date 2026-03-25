@@ -87,9 +87,9 @@ function Contact() {
 
           {/* Box 2: Social Links */}
           <div className="flex flex-col gap-6 rounded-3xl border border-slate-200 bg-white p-8 shadow-sm transition-shadow hover:shadow-md">
-            <h3 className={cn("text-3xl font-bold text-slate-900 text-left", fontJersey15.className)}>Let's Connect</h3>
+            <h3 className={cn("text-3xl font-bold text-slate-900 text-left", fontJersey15.className)}>Let&apos;s Connect</h3>
             <p className="text-slate-600 text-left leading-relaxed">
-              Whether you have a question, a project proposal, or just want to say hi, I'll try my best to get back to you!
+              Whether you have a question, a project proposal, or just want to say hi, I&apos;ll try my best to get back to you!
             </p>
             
             <div className="flex flex-col gap-4 mt-auto">
